@@ -7,11 +7,11 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.Surface((16, 32))
         self.image.fill('orange')
         self.rect = self.image.get_rect(topleft=pos)
-        self.direction = pygame.math.Vector2(0, 0)
 
         # player movement
+        self.direction = pygame.math.Vector2(0, 0)
         self.speed = 0.2
-        self.gravity = 0.2
+        self.gravity = 0.05
         self.jump_speed = -2
 
     def get_input(self):
