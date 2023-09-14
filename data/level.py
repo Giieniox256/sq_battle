@@ -5,9 +5,11 @@ from data.player import Player
 
 
 class Level:
+
     def __init__(self, level_data, surface):
         self.display_surface = surface
         self.setup_level(level_data)
+        self.jump_flag = False
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -24,33 +26,25 @@ class Level:
                     player_sprite = Player(pos=(x, y))
                     self.player.add(player_sprite)
 
+    def collision(self):
+        player = self.player.sprite
+
     def horizontal_mov_collision(self):
         player = self.player.sprite
-        player.rect.x += player.direction.x * player.speed
-
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if player.direction.x < 0:
+                if player.rect.x > sprite.rect.x:
                     player.rect.left = sprite.rect.right
-                elif player.direction.x > 0:
+                elif player.rect.x < sprite.rect.x:
                     player.rect.right = sprite.rect.left
 
     def vertical_mov_collision(self):
         player = self.player.sprite
-        player.insert_gravity()
-
-        for sprite in self.tiles.sprites():
-            if sprite.rect.colliderect(player.rect):
-                if player.direction.y > 0:
-                    player.rect.bottom = sprite.rect.top
-                    player.direction.y = 0
-                elif player.direction.y < 0:
-                    player.rect.top = sprite.rect.bottom
-                    player.direction.y = 0
 
     def run(self):
         self.tiles.draw(self.display_surface)
         self.player.update()
         self.horizontal_mov_collision()
         self.vertical_mov_collision()
+        # self.collision()
         self.player.draw(self.display_surface)

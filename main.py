@@ -21,4 +21,4 @@ while True:
     level.run()  # draw level and character
 
     pygame.display.update()  # redraw screen to see objects
-    clock.tick(80)
+    clock.tick(120)
