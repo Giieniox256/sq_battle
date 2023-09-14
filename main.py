@@ -5,6 +5,7 @@ from data.level import Level
 
 # Pygame setup
 pygame.init()
+pygame.display.set_caption('SQ_Game')
 screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 level = Level(lvl_map_1, screen)
@@ -15,8 +16,9 @@ while True:
             pygame.quit()
             sys.exit()
 
-    screen.fill('black')
-    level.run()
+    screen.fill('black')  # clear screen before put new frame
 
-    pygame.display.update()
+    level.run()  # draw level and character
+
+    pygame.display.update()  # redraw screen to see objects
     clock.tick(80)
