@@ -3,6 +3,8 @@ import sys
 from data.settings import *
 from data.level import Level
 
+# https://docs.replit.com/tutorials/python/2d-platform-game
+
 # Pygame setup
 pygame.init()
 pygame.display.set_caption('SQ_Game')

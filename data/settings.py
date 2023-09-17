@@ -1,13 +1,13 @@
 lvl_map_1 = [
     '                                  ',
-    '                                  ',
-    '         P  XXX                   ',
+    '        P                         ',
+    '            XXX                   ',
     '                              XXXX',
     '                                  ',
     '        XXXX          XXX X       ',
     '        XXXX                      ',
     '     XXXXXXXX              XXX  X ',
-    '   XXXX   XXXX    XXXX    XXX XX  ',
+    '   XXXX   XXXX    XXXX    XXX XXX ',
     '                                  ']
 
 tile_size = 32
